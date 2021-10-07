@@ -10,8 +10,19 @@ def get_scores_txn(session):
     Returns:
         List -- A list of dictionaries containing score information.
     """
-    scores = session.query(Score).all()
-    return list(map(lambda score: {'id': score.id,
-                                  'name': score.playername,
-                                  'score': score.score},
-                    scores))
+    query = session.query(Score)
+    scores = query.all()
+    scores.sort(reverse=True, key=lambda e: e.score)
+    
+    result = list(map(lambda score, i: { 'id': score.id,
+                                  'ranking': i + 1,
+                                  'playername': score.playername,
+                                  'score': score.score
+                                  },
+                                  scores,
+                                  list(range(len(scores)))))
+
+    return result
+
+
+

@@ -12,12 +12,23 @@
   This will keep scripts at the page end and a navbar you add on later
   intact. #}
 {% block content %}
- <div class="container">
-  <div class="row">
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+    </tr>
+  </thead>
+  <tbody>
     {% for score in scores %}
-    <div class="col-4">{{ score.playername }}</div>
-    <div class="col-4">{{ score.score }}</div>
+    <tr>
+      <th scope="row">{{ score.ranking }}</th>
+      <td>{{ score.playername }}</td>
+      <td>{{ score.score }}</td>
+    </tr>
     {% endfor %}
-  </div>
+  </tbody>
+</table>
 </div>
 {%- endblock %}
