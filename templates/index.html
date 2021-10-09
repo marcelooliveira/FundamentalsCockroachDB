@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="row mt-4">
-  <div class="col col-md-6 offset-md-3 alert alert-primary  bg-success text-white text-center">
+  <div class="col col-md-6 offset-md-3 alert alert-primary bg-success text-white text-center">
     <span class="h1">GAME LEADERBOARD</span>
   </div>
 </div>
@@ -19,8 +19,9 @@
     </div>
     {% for score in scores %}
     <div class="row alert alert-warning">
+      <input type="hidden" value={{ score.id }}></input>
       <span class="col col-md-2 mt-0 h1 text-center">{{ score.ranking }}</span>
-      <span class="col col-md-6 mt-0 border-left border-dark h1">🧑🏻&nbsp;{{ score.playername }}</span>
+      <span class="col col-md-6 mt-0 border-left border-dark h1">{{ score.avatar }}&nbsp;{{ score.playername }}</span>
       <span class="col col-md-4 mt-0 border-left border-dark h1 text-right">{{ score.points }}</span>
     </div>
     {% endfor %}

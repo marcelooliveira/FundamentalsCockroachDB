@@ -1,4 +1,5 @@
 from models import Score
+import uuid
 
 def get_scores_txn(session):
     """
@@ -11,18 +12,14 @@ def get_scores_txn(session):
         List -- A list of dictionaries containing score information.
     """
     query = session.query(Score)
-    scores = query.all()
-    scores.sort(reverse=True, key=lambda e: e.points)
-    
-    result = list(map(lambda score, i: { 'id': score.id,
-                                  'ranking': i + 1,
-                                  'playername': score.playername,
-                                  'points': score.points
-                                  },
-                                  scores,
-                                  list(range(len(scores)))))
+    return query.all()
 
-    return result
-
-
-
+def add_score_txn(session, avatar, playername, points):
+    score = Score(
+        id=str(
+            uuid.uuid4()),
+        avatar=avatar,
+        playername=playername,
+        points=points
+    )
+    session.add(score)
