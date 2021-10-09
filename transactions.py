@@ -12,12 +12,12 @@ def get_scores_txn(session):
     """
     query = session.query(Score)
     scores = query.all()
-    scores.sort(reverse=True, key=lambda e: e.score)
+    scores.sort(reverse=True, key=lambda e: e.points)
     
     result = list(map(lambda score, i: { 'id': score.id,
                                   'ranking': i + 1,
                                   'playername': score.playername,
-                                  'score': score.score
+                                  'points': score.points
                                   },
                                   scores,
                                   list(range(len(scores)))))

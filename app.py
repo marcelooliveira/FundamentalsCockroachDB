@@ -19,5 +19,10 @@ def index():
     return render_template('index.html',
                             scores=scores)
 
+@app.route("/player")
+def player():
+
+    return render_template('player.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

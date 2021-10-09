@@ -1,0 +1,43 @@
+{%- extends "base.html" %}
+
+{% import "bootstrap/utils.html" as utils %}
+
+{% block content %}
+
+<div class="row mt-4">
+  <div class="col col-md-6 offset-md-3 alert alert-primary text-center">
+    <span class="h1">Add New Entry</span>
+  </div>
+</div>
+
+<form action="/save">
+  <div class="row">
+    <div class="col col-md-6 offset-md-3">
+      <div class="row alert alert-warning">
+        <select name="avatar" id="avatars" class="col col-md-3 mt-0 h1">
+          <option value="0">not set</option>
+          <option value="1">👨🏻</option>
+          <option value="2">👨🏼</option>
+          <option value="3">👨🏽</option>
+          <option value="4">👨🏾</option>
+          <option value="5">👨🏿</option>
+          <option value="6">👩🏻</option>
+          <option value="7">👩🏼</option>
+          <option value="8">👩🏽</option>
+          <option value="9">👩🏾</option>
+          <option value="10">👩🏿</option>
+        </select>
+        <input type="text" class="col col-md-6 mt-0 h1" placeholder="player name"></input>
+        <input type="number" class="col col-md-3 mt-0 h1 text-right" placeholder="points"></input>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-0">
+    <div class="col col-md-4 offset-md-5">
+      <input type="submit"  class="h1 mt-0 float-right text-center" value="✔️ Confirm"></span>
+      <input type="submit" class="h1 mt-0 mr-4 float-right text-center" value="❌ Cancel"></span>
+    </div>
+  </div>
+</form>
+  
+  {%- endblock %}

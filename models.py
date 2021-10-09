@@ -18,8 +18,8 @@ class Score(Base):
     __tablename__ = 'scores'
     id = Column(UUID, primary_key=True)
     playername = Column(String)
-    score = Column(INT)
+    points = Column(INT)
 
     def __repr__(self):
-        return "<Score(playerName='{0}', id='{1}', score='{2}')>".format(
-            self.playername, self.id, self.score)
+        return "<Score(playerName='{0}', id='{1}', points='{2}')>".format(
+            self.playername, self.id, self.points)
