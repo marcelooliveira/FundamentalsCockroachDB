@@ -37,7 +37,6 @@ class Leaderboard:
         return run_transaction(self.sessionmaker,
                                lambda session: add_score_txn(session, score.avatar, score.playername, score.points))
 
-
     def prepare_scores(self, session):
         scores = get_scores_txn(session)
         scores.sort(reverse=True, key=lambda e: e.points)

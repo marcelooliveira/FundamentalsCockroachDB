@@ -13,10 +13,7 @@ DEFAULT_ROUTE_PLAYER = "player"
 app = Flask(__name__)
 Bootstrap(app)
 
-# Initialize the db connection
 conn_string = environ.get("DB_URI")
-# conn_string = app.config.get("DB_URI")
-
 leaderboard = Leaderboard(conn_string)
 
 @app.route("/")
