@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="row mt-4">
-  <div class="col col-md-6 offset-md-3 alert alert-primary text-center">
+  <div class="col col-md-6 offset-md-3 alert alert-primary bg-danger text-white text-center">
     <span class="h1">Add New Entry</span>
   </div>
 </div>
@@ -13,7 +13,12 @@
 <form method="POST">
   <div class="row">
     <div class="col col-md-6 offset-md-3">
-      <div class="row alert alert-warning">
+      <div class="row alert alert-warning bg-dark text-white">
+        <span class="col col-md-3 mt-0 h1">Avatar</span>
+        <span class="col col-md-6 mt-0 h1 border-left">Player Name</span>
+        <span class="col col-md-3 mt-0 h1 border-left text-right">Points</span>
+      </div>
+      <div class="row">
         <input type="hidden" name="id" value={{ score.id }}></input>
         <select name="avatar" id="avatars" class="col col-md-3 mt-0 h1">
           {% for a in avatars %}
@@ -24,15 +29,15 @@
           >{{ avatars[a] }}</option>
           {% endfor %}
         </select>
-        <input type="text" class="col col-md-6 mt-0 h1" placeholder="player name" name="playername" value={{ score.playername }}></input>
-        <input type="number" class="col col-md-3 mt-0 h1 text-right" placeholder="points" name="points" value={{ score.points }}></input>
+        <input type="text" class="col col-md-6 mt-0 h1" name="playername" value={{ score.playername }}></input>
+        <input type="number" class="col col-md-3 mt-0 h1 text-right" name="points" value={{ score.points }}></input>
       </div>
     </div>
   </div>
   <div class="row mt-0">
     <div class="col col-md-4 offset-md-5">
       <input type="submit" class="h1 mt-0 float-right text-center" value="✔️ Confirm"/>
-      <input type="button" class="h1 mt-0 mr-4 button btn-danger float-right text-center"
+      <input type="button" class="h1 mt-0 mr-4 button float-right text-center"
         value="❌ Cancel" onclick="location.href='/'"/>
     </div>
   </div>
